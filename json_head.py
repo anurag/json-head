@@ -3,6 +3,7 @@ from sanic import response
 import aiohttp
 import asyncio
 import re
+import os
 import json
 
 app = Sanic(__name__)
@@ -71,4 +72,4 @@ async def handle_request(request):
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=8006)
+    app.run(host="0.0.0.0", port=int(os.getenv("PORT", "8006")))
